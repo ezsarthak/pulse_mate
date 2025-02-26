@@ -1,0 +1,2 @@
+C:/Users/lenovo/StudioProjects/pulse_mate/android/app/.cxx/RelWithDebInfo/4e1p2w34/x86/CMakeFiles/edit_cache.dir
+C:/Users/lenovo/StudioProjects/pulse_mate/android/app/.cxx/RelWithDebInfo/4e1p2w34/x86/CMakeFiles/rebuild_cache.dir

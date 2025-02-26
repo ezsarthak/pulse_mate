@@ -1,0 +1,42 @@
+name: pulse_mate
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
+  google_fonts: ^6.2.1
+  bottom_picker: ^2.9.0
+  get: ^4.6.6
+  carousel_slider: ^5.0.0
+  smooth_page_indicator: ^1.2.0+3
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/welcome_screen/
+    - assets/signup/
+  fonts:
+    - family: Sk-Modernist
+      fonts:
+        - asset: assets/fonts/Sk-Modernist-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Sk-Modernist-Regular.otf
+          weight: 400
+
