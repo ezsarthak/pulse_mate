@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_mate/presentation/screens/signup_flow.dart';
 import 'package:pulse_mate/presentation/screens/signup_screen.dart';
 import 'package:pulse_mate/presentation/screens/welcome_screen.dart';
 import 'package:pulse_mate/widgets/app_text.dart';
@@ -10,6 +11,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const WelcomeScreen());
       case '/signup':
         return MaterialPageRoute(builder: (_) => const SignupScreen());
+      case '/signupFlow':
+        return MaterialPageRoute(builder: (_) => const SignupFlow());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
