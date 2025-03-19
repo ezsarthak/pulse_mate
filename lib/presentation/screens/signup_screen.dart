@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_mate/core/utils/app_colors.dart';
 import 'package:pulse_mate/core/utils/app_constants.dart';
+import 'package:pulse_mate/core/utils/snackbar.dart';
 import 'package:pulse_mate/widgets/app_button.dart' show appButton;
 import 'package:pulse_mate/widgets/app_text.dart';
 
@@ -109,18 +110,30 @@ class SignupScreen extends StatelessWidget {
             /// Facebook Google Apple
             GestureDetector(
               onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                      content: appText(
-                          textName: "Coming Soon",
-                          textStyle: TextStyle(
-                            fontFamily: AppConstants.appFont,
-                            fontSize: appDimension.h5,
-                            fontWeight: Dimensions.fontBold,
-                            color: AppColors.white,
-                          )),
-                      backgroundColor: Colors.red),
+                final snackbar = SnackBar(
+                  backgroundColor: AppColors.secondary.withValues(alpha: 0.5),
+                  // padding: const EdgeInsets.all(20),
+                  margin:EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.1,
+                  ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)
+                  ),
+                  content: appText(
+                      textName: "Coming Soon",
+                      textStyle: TextStyle(
+                        fontFamily: AppConstants.appFont,
+                        fontSize: appDimension.h5,
+                        fontWeight: Dimensions.fontBold,
+                        color: AppColors.white,
+                      )
+                  ),
+                  elevation: 0,
+
+                  behavior: SnackBarBehavior.floating,
                 );
+                showSnackbar(context, snackbar);
+
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -19,6 +19,9 @@ dependencies:
   get: ^4.6.6
   carousel_slider: ^5.0.0
   smooth_page_indicator: ^1.2.0+3
+  dart_jsonwebtoken: ^3.2.0
+  shared_preferences: ^2.5.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -32,6 +35,7 @@ flutter:
     - assets/
     - assets/welcome_screen/
     - assets/signup/
+    - assets/icons/
   fonts:
     - family: Sk-Modernist
       fonts:

@@ -112,24 +112,30 @@ class WelcomeScreen extends StatelessWidget {
               ),
 
               /// Already Have acc sign in?
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  appText(
-                      textName: "Already have an account? ",
-                      textStyle: TextStyle(
-                          fontFamily: AppConstants.appFont,
-                          fontWeight: Dimensions.fontRegular,
-                          color: AppColors.black,
-                          fontSize: appDimension.h6)),
-                  appText(
-                      textName: "Sign in",
-                      textStyle: TextStyle(
-                          fontFamily: AppConstants.appFont,
-                          fontWeight: Dimensions.fontRegular,
-                          color: AppColors.red,
-                          fontSize: appDimension.h6)),
-                ],
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, '/login');
+                },
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    appText(
+                        textName: "Already have an account? ",
+                        textStyle: TextStyle(
+                            fontFamily: AppConstants.appFont,
+                            fontWeight: Dimensions.fontRegular,
+                            color: AppColors.black,
+                            fontSize: appDimension.h6)),
+                    appText(
+                        textName: "Sign in",
+                        textStyle: TextStyle(
+                            fontFamily: AppConstants.appFont,
+                            fontWeight: Dimensions.fontRegular,
+                            color: AppColors.red,
+                            fontSize: appDimension.h6)),
+                  ],
+                ),
               )
             ],
           ),
