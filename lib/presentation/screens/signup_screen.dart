@@ -13,10 +13,10 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Dimensions appDimension = Dimensions(context);
-    return Scaffold(
-      backgroundColor: AppColors.bg,
-      body: SafeArea(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.bg,
+        body: Column(
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
