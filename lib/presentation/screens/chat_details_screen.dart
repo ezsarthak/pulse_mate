@@ -19,7 +19,6 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
   void initState() {
     super.initState();
     _chatService.connect(widget.sender);
-
     // Set listener for receiving messages
     _chatService.onMessageReceived = (sender, message) {
       setState(() {
@@ -47,7 +46,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Chat")),
+      appBar: AppBar(title: Text(widget.receiver)),
       body: Column(
         children: [
           Expanded(

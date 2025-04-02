@@ -24,6 +24,7 @@ class ChatService{
       );
       if (response.statusCode == 200) {
         final List friendsList = json.decode(response.body);
+
         return friendsList.map((json) => User.fromJson(json)).toList();
       } else {
         log(response.statusCode.toString());
