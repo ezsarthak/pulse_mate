@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pulse_mate/presentation/auth_check_navigation.dart';
 import 'package:pulse_mate/presentation/screens/home_screen.dart';
 import 'package:pulse_mate/presentation/screens/login_screen.dart';
+import 'package:pulse_mate/presentation/screens/navigation_screen.dart';
 import 'package:pulse_mate/presentation/screens/signup_flow.dart';
 import 'package:pulse_mate/presentation/screens/signup_screen.dart';
 import 'package:pulse_mate/presentation/screens/welcome_screen.dart';
@@ -18,6 +19,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SignupScreen());
       case '/signupFlow':
         return MaterialPageRoute(builder: (_) => const SignupFlow());
+      case '/nav':
+        return MaterialPageRoute(builder: (_) => NavigationScreen());
       case '/home':
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:

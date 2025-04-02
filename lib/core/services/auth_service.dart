@@ -50,4 +50,13 @@ class AuthService {
     debugPrint('Response Code : ${response.statusCode}');
     throw Exception(jsonDecode(response.body)['error']);
   }
+
+  void logOut(BuildContext context) {
+    UserSimplePrefs().deleteToken();
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      '/',
+      (Route<dynamic> route) => false,
+    );
+  }
 }

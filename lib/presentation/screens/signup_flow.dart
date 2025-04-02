@@ -106,16 +106,19 @@ class _SignupFlowState extends State<SignupFlow> {
                           fontWeight: Dimensions.fontBold,
                           color: AppColors.black,
                         ))),
-                appText(
-                    textName:
-                        "Please enter your valid email id. Create at least 6 length password to create your account.",
-                    maxLines: 2,
-                    textStyle: TextStyle(
-                      fontFamily: AppConstants.appFont,
-                      fontSize: appDimension.h6,
-                      fontWeight: Dimensions.fontRegular,
-                      color: AppColors.black.withValues(alpha: 0.7),
-                    )),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: appText(
+                      textName:
+                          "Please enter your valid email id. Create at least 6 length password to create your account.",
+                      maxLines: 2,
+                      textStyle: TextStyle(
+                        fontFamily: AppConstants.appFont,
+                        fontSize: appDimension.h6,
+                        fontWeight: Dimensions.fontRegular,
+                        color: AppColors.black.withValues(alpha: 0.7),
+                      )),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.05,
                 ),
@@ -199,14 +202,17 @@ class _SignupFlowState extends State<SignupFlow> {
                     BottomPicker.date(
                       // titlePadding:
                       // EdgeInsets.only(top: appDimensions.mediumSpace),
-                      pickerTitle: appText(
-                          textName: "Select DOB",
-                          textStyle: TextStyle(
-                            fontFamily: AppConstants.appFont,
-                            fontSize: appDimension.h4,
-                            fontWeight: Dimensions.fontBold,
-                            color: AppColors.red,
-                          )),
+                      pickerTitle: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: appText(
+                            textName: "Select DOB",
+                            textStyle: TextStyle(
+                              fontFamily: AppConstants.appFont,
+                              fontSize: appDimension.h4,
+                              fontWeight: Dimensions.fontBold,
+                              color: AppColors.red,
+                            )),
+                      ),
                       dateOrder: DatePickerDateOrder.dmy,
                       initialDateTime: selectedDate,
                       maxDateTime: DateTime(DateTime.now().year - 17),
@@ -223,14 +229,17 @@ class _SignupFlowState extends State<SignupFlow> {
                         borderRadius: BorderRadius.circular(16),
                       ),
                       buttonContent: Center(
-                        child: appText(
-                            textName: "Confirm",
-                            textStyle: TextStyle(
-                              fontFamily: AppConstants.appFont,
-                              fontSize: appDimension.h4,
-                              fontWeight: Dimensions.fontBold,
-                              color: AppColors.white,
-                            )),
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: appText(
+                              textName: "Confirm",
+                              textStyle: TextStyle(
+                                fontFamily: AppConstants.appFont,
+                                fontSize: appDimension.h4,
+                                fontWeight: Dimensions.fontBold,
+                                color: AppColors.white,
+                              )),
+                        ),
                       ),
                       onSubmit: (index) {
                         setState(() {
@@ -273,14 +282,17 @@ class _SignupFlowState extends State<SignupFlow> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.03,
                         ),
-                        appText(
-                            textName: date,
-                            textStyle: TextStyle(
-                              fontFamily: AppConstants.appFont,
-                              fontSize: appDimension.h6,
-                              fontWeight: Dimensions.fontBold,
-                              color: AppColors.red,
-                            ))
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: appText(
+                              textName: date,
+                              textStyle: TextStyle(
+                                fontFamily: AppConstants.appFont,
+                                fontSize: appDimension.h6,
+                                fontWeight: Dimensions.fontBold,
+                                color: AppColors.red,
+                              )),
+                        )
                       ],
                     ),
                   ),
@@ -304,14 +316,17 @@ class _SignupFlowState extends State<SignupFlow> {
                           ),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12)),
-                          content: appText(
-                              textName: "Age 18+ Required",
-                              textStyle: TextStyle(
-                                fontFamily: AppConstants.appFont,
-                                fontSize: appDimension.h5,
-                                fontWeight: Dimensions.fontBold,
-                                color: AppColors.white,
-                              )),
+                          content: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: appText(
+                                textName: "Age 18+ Required",
+                                textStyle: TextStyle(
+                                  fontFamily: AppConstants.appFont,
+                                  fontSize: appDimension.h5,
+                                  fontWeight: Dimensions.fontBold,
+                                  color: AppColors.white,
+                                )),
+                          ),
                           elevation: 0,
                           behavior: SnackBarBehavior.floating,
                         );
@@ -402,7 +417,7 @@ class _SignupFlowState extends State<SignupFlow> {
                       // Woman option
                       GestureDetector(
                         onTap: () {
-                          genderGetxController.change('Woman');
+                          genderGetxController.change('Female');
                         },
                         child: Container(
                           width: double.infinity,
@@ -412,13 +427,13 @@ class _SignupFlowState extends State<SignupFlow> {
                                 MediaQuery.of(context).size.height * 0.0175,
                           ),
                           decoration: BoxDecoration(
-                            color: genderGetxController.gender.value == 'Woman'
+                            color: genderGetxController.gender.value == 'Female'
                                 ? AppColors.red
                                 : AppColors.white,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
                               color:
-                                  genderGetxController.gender.value == 'Woman'
+                                  genderGetxController.gender.value == 'Female'
                                       ? AppColors.red
                                       : AppColors.border,
                               width: 1,
@@ -428,12 +443,12 @@ class _SignupFlowState extends State<SignupFlow> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               appText(
-                                textName: 'Woman',
+                                textName: 'Female',
                                 textStyle: TextStyle(
                                   fontSize: appDimension.h5,
                                   fontWeight: Dimensions.fontRegular,
                                   color: genderGetxController.gender.value ==
-                                          'Woman'
+                                          'Female'
                                       ? AppColors.white
                                       : AppColors.black,
                                 ),
@@ -441,7 +456,7 @@ class _SignupFlowState extends State<SignupFlow> {
                               Icon(
                                 Icons.check,
                                 color:
-                                    genderGetxController.gender.value == 'Woman'
+                                    genderGetxController.gender.value == 'Female'
                                         ? AppColors.white
                                         : AppColors.inactive,
                                 size: 20,
@@ -454,7 +469,7 @@ class _SignupFlowState extends State<SignupFlow> {
                       // Man option
                       GestureDetector(
                         onTap: () {
-                          genderGetxController.change('Man');
+                          genderGetxController.change('Male');
                         },
                         child: Container(
                           width: double.infinity,
@@ -464,12 +479,12 @@ class _SignupFlowState extends State<SignupFlow> {
                                 MediaQuery.of(context).size.height * 0.0175,
                           ),
                           decoration: BoxDecoration(
-                            color: genderGetxController.gender.value == 'Man'
+                            color: genderGetxController.gender.value == 'Male'
                                 ? AppColors.red
                                 : AppColors.white,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
-                              color: genderGetxController.gender.value == 'Man'
+                              color: genderGetxController.gender.value == 'Male'
                                   ? AppColors.red
                                   : AppColors.border,
                               width: 1,
@@ -479,12 +494,12 @@ class _SignupFlowState extends State<SignupFlow> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               appText(
-                                textName: 'Man',
+                                textName: 'Male',
                                 textStyle: TextStyle(
                                   fontSize: appDimension.h5,
                                   fontWeight: Dimensions.fontRegular,
                                   color:
-                                      genderGetxController.gender.value == 'Man'
+                                      genderGetxController.gender.value == 'Male'
                                           ? AppColors.white
                                           : AppColors.black,
                                 ),
@@ -492,7 +507,7 @@ class _SignupFlowState extends State<SignupFlow> {
                               Icon(
                                 Icons.check,
                                 color:
-                                    genderGetxController.gender.value == 'Man'
+                                    genderGetxController.gender.value == 'Male'
                                         ? AppColors.white
                                         : AppColors.inactive,
                                 size: 20,

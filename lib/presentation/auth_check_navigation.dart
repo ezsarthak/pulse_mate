@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_mate/core/services/home_screen_service.dart';
-import 'package:pulse_mate/presentation/screens/home_screen.dart';
+import 'package:pulse_mate/data/models/profile.dart';
+import 'package:pulse_mate/presentation/screens/navigation_screen.dart';
 import 'package:pulse_mate/presentation/screens/welcome_screen.dart';
 
 class AuthChecker extends StatelessWidget {
@@ -8,7 +9,7 @@ class AuthChecker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<String?>(
+    return StreamBuilder<List<Profile?>>(
       stream: HomeScreenService.getData().asStream(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -16,7 +17,7 @@ class AuthChecker extends StatelessWidget {
               child: CircularProgressIndicator()); // Loading state
         }
         if (snapshot.hasData) {
-          return HomeScreen(); // User is logged in
+          return NavigationScreen(); // User is logged in
         } else {
           return const WelcomeScreen(); // User is not logged in
         }

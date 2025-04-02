@@ -14,7 +14,7 @@ Text appText({
   final TextStyle? textStyle,
 }) {
   return Text(textName,
-      textAlign: textAlign ?? TextAlign.start,
+      textAlign: textAlign,
       maxLines: maxLines,
       softWrap: softWrap,
       overflow: textOverflow,

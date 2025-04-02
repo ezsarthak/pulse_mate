@@ -119,14 +119,17 @@ class SignupScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12)
                   ),
-                  content: appText(
-                      textName: "Coming Soon",
-                      textStyle: TextStyle(
-                        fontFamily: AppConstants.appFont,
-                        fontSize: appDimension.h5,
-                        fontWeight: Dimensions.fontBold,
-                        color: AppColors.white,
-                      )
+                  content: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: appText(
+                        textName: "Coming Soon",
+                        textStyle: TextStyle(
+                          fontFamily: AppConstants.appFont,
+                          fontSize: appDimension.h5,
+                          fontWeight: Dimensions.fontBold,
+                          color: AppColors.white,
+                        )
+                    ),
                   ),
                   elevation: 0,
 

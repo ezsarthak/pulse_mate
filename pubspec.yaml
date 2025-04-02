@@ -18,10 +18,14 @@ dependencies:
   bottom_picker: ^2.9.0
   get: ^4.6.6
   carousel_slider: ^5.0.0
+  custom_navigation_bar: ^0.8.2
+  card_swiper: ^3.0.1
   smooth_page_indicator: ^1.2.0+3
   dart_jsonwebtoken: ^3.2.0
   shared_preferences: ^2.5.2
   dropdown_button2: ^2.3.9
+  web_socket_channel: ^3.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

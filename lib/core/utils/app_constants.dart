@@ -1,4 +1,4 @@
 class AppConstants {
   static String appFont = 'Sk-Modernist';
-  static String serverAddress = 'http://10.0.2.2:8000';
+  static String serverAddress = 'http://192.168.1.5:8000';
 }
