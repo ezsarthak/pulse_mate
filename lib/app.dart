@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pulse_mate/presentation/screens/welcome_screen.dart';
 import 'core/router/router.dart';
 
 class MyApp extends StatelessWidget {

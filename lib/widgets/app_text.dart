@@ -3,10 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 Text appText({
   required final String textName,
-  final double? fontSize,
-  final FontWeight? fontWeight,
-  final double? letterSpacing,
-  lineHeight,
   final int? maxLines,
   final bool? softWrap,
   final TextOverflow? textOverflow,

@@ -17,9 +17,11 @@ Widget appTextFormField({
   bool onlyNumbers = false,
   double? fontSize,
   Color? textColor,
+  void Function(String)? onFieldSubmitted,
   FontWeight? fontWeight,
   double? lineHeight,
   Widget? icon,
+  Colors? outlineColor,
   Widget? suffixIcon,
   bool? isSearchBox = false,
   bool obscureText = false,
@@ -29,6 +31,7 @@ Widget appTextFormField({
     controller: textEditingController,
     validator: validator,
     onTap: onTap,
+    onFieldSubmitted: onFieldSubmitted,
     obscureText: obscureText,
     onChanged: onChanged,
     keyboardType: textInputType ?? TextInputType.text,
@@ -69,33 +72,33 @@ Widget appTextFormField({
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
         borderSide: BorderSide(
-          color: AppColors.border,
+          color: isSearchBox! ? AppColors.red : AppColors.border,
         ),
       ),
       errorStyle: const TextStyle(height: 0),
       contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
-        borderSide: const BorderSide(
-          color: AppColors.border,
+        borderSide: BorderSide(
+          color: isSearchBox ? AppColors.red : AppColors.border,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
         borderSide: BorderSide(
-          color: isSearchBox! ? AppColors.red : AppColors.border,
+          color: isSearchBox ? AppColors.red : AppColors.border,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
-        borderSide: const BorderSide(
-          color: AppColors.border,
+        borderSide: BorderSide(
+          color: isSearchBox ? AppColors.red : AppColors.border,
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
-        borderSide: const BorderSide(
-          color: AppColors.border,
+        borderSide: BorderSide(
+          color: isSearchBox ? AppColors.red : AppColors.border,
         ),
       ),
     ),

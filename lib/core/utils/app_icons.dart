@@ -3,4 +3,5 @@ class AppIcons {
   static String arrowDown = "assets/icons/arrow_down.png";
   static String message = "assets/icons/message.png";
   static String next = "assets/icons/next.png";
+  static String like = "assets/icons/like.png";
 }
