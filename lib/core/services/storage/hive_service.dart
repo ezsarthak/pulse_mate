@@ -5,7 +5,6 @@ import 'hive_user.dart';
 class HiveService {
   final Box<HiveUser> box = Hive.box<HiveUser>('matchesBox');
 
-
 // Get all users
   List<HiveUser> getAllHiveUsers() {
     final box = Hive.box<HiveUser>('matchesBox');
@@ -19,5 +18,9 @@ class HiveService {
     if (!existingEmails.contains(user.email)) {
       await box.add(user);
     }
+  }
+
+  void deleteHive() async {
+    await Hive.deleteFromDisk();
   }
 }

@@ -146,7 +146,8 @@ class _ChatScreenState extends State<ChatScreen> {
                                       title: appText(
                                         textName: currentFriends
                                             .elementAt(index)
-                                            .name,
+                                            .name
+                                            .capitalizeFirstOfEach,
                                         textStyle: TextStyle(
                                           fontFamily: AppConstants.appFont,
                                           fontSize: appDimension.h6,

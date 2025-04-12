@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:pulse_mate/core/services/shared_preferences.dart';
+import 'package:pulse_mate/core/services/storage/hive_service.dart';
 import 'package:pulse_mate/core/utils/app_constants.dart';
 
 class AuthService {
@@ -51,8 +53,9 @@ class AuthService {
     throw Exception(jsonDecode(response.body)['error']);
   }
 
-  void logOut(BuildContext context) {
+  Future<void> logOut(BuildContext context) async {
     UserSimplePrefs().deleteToken();
+    HiveService().deleteHive();
     Navigator.pushNamedAndRemoveUntil(
       context,
       '/',

@@ -79,7 +79,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen>
         "sender": msg.sender == widget.sender ? "You" : msg.sender,
         "message": msg.message,
         "timestamp": msg.timestamp,
-        "status": ChatMessage.intToMessageStatus(msg.status),
+        "status": MessageStatus.delivered,
         "animation": animation,
         "animController": animController,
       };
@@ -337,6 +337,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen>
                           message: msg["message"],
                           isSender: isSender,
                           timestamp: msg["timestamp"],
+                          status: msg["status"],
                           animation: msg["animation"],
                         );
                       },

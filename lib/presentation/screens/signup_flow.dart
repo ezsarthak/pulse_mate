@@ -363,7 +363,8 @@ class _SignupFlowState extends State<SignupFlow> {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        _pageController.animateToPage(0, duration: Duration(milliseconds: 200),
+                        _pageController.animateToPage(0,
+                            duration: Duration(milliseconds: 200),
                             curve: Curves.easeInOut);
                       },
                       child: Icon(
@@ -455,10 +456,10 @@ class _SignupFlowState extends State<SignupFlow> {
                               ),
                               Icon(
                                 Icons.check,
-                                color:
-                                    genderGetxController.gender.value == 'Female'
-                                        ? AppColors.white
-                                        : AppColors.inactive,
+                                color: genderGetxController.gender.value ==
+                                        'Female'
+                                    ? AppColors.white
+                                    : AppColors.inactive,
                                 size: 20,
                               ),
                             ],
@@ -498,10 +499,10 @@ class _SignupFlowState extends State<SignupFlow> {
                                 textStyle: TextStyle(
                                   fontSize: appDimension.h5,
                                   fontWeight: Dimensions.fontRegular,
-                                  color:
-                                      genderGetxController.gender.value == 'Male'
-                                          ? AppColors.white
-                                          : AppColors.black,
+                                  color: genderGetxController.gender.value ==
+                                          'Male'
+                                      ? AppColors.white
+                                      : AppColors.black,
                                 ),
                               ),
                               Icon(
@@ -733,7 +734,7 @@ class _SignupFlowState extends State<SignupFlow> {
                         debugPrint(info.payload.toString());
                         Navigator.pushNamedAndRemoveUntil(
                           context,
-                          '/home',
+                          '/',
                           (Route<dynamic> route) => false,
                         );
                       } catch (e) {
@@ -759,7 +760,8 @@ class _SignupFlowState extends State<SignupFlow> {
                           behavior: SnackBarBehavior.floating,
                         );
                         showSnackbar(context, snackbar);
-                        _pageController.animateToPage(0, duration: Duration(milliseconds: 200),
+                        _pageController.animateToPage(0,
+                            duration: Duration(milliseconds: 200),
                             curve: Curves.easeInOut);
                       }
                     }

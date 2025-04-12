@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pulse_mate/core/utils/app_colors.dart';
 import 'package:pulse_mate/core/utils/app_constants.dart';
 import 'package:pulse_mate/core/utils/dimensions.dart';
+import 'package:pulse_mate/widgets/app_text.dart';
 import 'package:intl/intl.dart';
 
 enum MessageStatus { sending, sent, delivered, read }
@@ -10,15 +11,17 @@ class MessageBubble extends StatelessWidget {
   final String message;
   final bool isSender;
   final DateTime timestamp;
+  final MessageStatus status;
   final Animation<double> animation;
 
   const MessageBubble({
-    super.key,
+    Key? key,
     required this.message,
     required this.isSender,
     required this.timestamp,
+    required this.status,
     required this.animation,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +104,10 @@ class MessageBubble extends StatelessWidget {
                           : Colors.grey,
                     ),
                   ),
+                  if (isSender) ...[
+                    const SizedBox(width: 4),
+                    _buildStatusIcon(),
+                  ],
                 ],
               ),
             ],
@@ -108,5 +115,34 @@ class MessageBubble extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildStatusIcon() {
+    switch (status) {
+      case MessageStatus.sending:
+        return Icon(
+          Icons.access_time,
+          size: 12,
+          color: Colors.white.withOpacity(0.7),
+        );
+      case MessageStatus.sent:
+        return Icon(
+          Icons.check,
+          size: 12,
+          color: Colors.white.withOpacity(0.7),
+        );
+      case MessageStatus.delivered:
+        return Icon(
+          Icons.done_all,
+          size: 12,
+          color: Colors.white.withOpacity(0.7),
+        );
+      case MessageStatus.read:
+        return Icon(
+          Icons.done_all,
+          size: 12,
+          color: Colors.blue.shade300,
+        );
+    }
   }
 }

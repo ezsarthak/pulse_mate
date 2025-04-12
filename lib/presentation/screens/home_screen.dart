@@ -16,6 +16,7 @@ import 'package:pulse_mate/core/utils/screen_overlay.dart';
 import 'package:pulse_mate/data/models/profile.dart';
 import 'package:pulse_mate/data/models/user_model.dart';
 import 'package:pulse_mate/presentation/screens/chat_details_screen.dart';
+import 'package:pulse_mate/widgets/app_button.dart';
 import 'package:pulse_mate/widgets/app_text.dart';
 import 'package:pulse_mate/widgets/match_overlay.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -154,30 +155,138 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.03,
                       ),
-                      Center(
-                        child: FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: appText(
-                                textName: "Discover",
-                                textStyle: TextStyle(
-                                  fontFamily: AppConstants.appFont,
-                                  fontSize: appDimension.h1,
-                                  fontWeight: Dimensions.fontBold,
-                                  color: AppColors.black,
-                                ))),
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          // Centered title + subtitle
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: appText(
+                                          textName: "Discover",
+                                          textAlign: TextAlign.center,
+                                          textStyle: TextStyle(
+                                            fontFamily: AppConstants.appFont,
+                                            fontSize: appDimension.h1,
+                                            fontWeight: Dimensions.fontBold,
+                                            color: AppColors.black,
+                                          ))),
+                                ),
+                                SizedBox(height: 4),
+                                FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: appText(
+                                        textAlign: TextAlign.center,
+                                        textName:
+                                            user.name.capitalizeFirstOfEach,
+                                        textStyle: TextStyle(
+                                          fontFamily: AppConstants.appFont,
+                                          fontSize: appDimension.h5,
+                                          fontWeight: Dimensions.fontBold,
+                                          color: AppColors.red,
+                                        ))),
+                              ],
+                            ),
+                          ),
+
+                          // Trailing icon
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: _buildCircleButton(
+                              onTap: () {
+                                showOverlay(
+                                    context: context,
+                                    content: IntrinsicHeight(
+                                      child: Column(
+                                        children: [
+                                          appText(
+                                              textName: "Logout ?",
+                                              textStyle: TextStyle(
+                                                fontFamily:
+                                                    AppConstants.appFont,
+                                                fontSize: appDimension.h3,
+                                                fontWeight: Dimensions.fontBold,
+                                                color: AppColors.black,
+                                              )),
+                                          SizedBox(
+                                            height: 12,
+                                          ),
+                                          appText(
+                                              textName:
+                                                  "Your account will be logged out. All Chats and Matches will be deleted",
+                                              textStyle: TextStyle(
+                                                fontFamily:
+                                                    AppConstants.appFont,
+                                                fontSize: appDimension.h5,
+                                                fontWeight:
+                                                    Dimensions.fontRegular,
+                                                color: AppColors.black,
+                                              )),
+                                          SizedBox(
+                                            height: 24,
+                                          ),
+                                          ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  elevation: 0,
+                                                  minimumSize: Size(
+                                                    double.maxFinite,
+                                                    MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        0.07,
+                                                  ),
+                                                  backgroundColor:
+                                                      AppColors.inactive,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15))),
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: appText(
+                                                  textName: "Cancel",
+                                                  textStyle: TextStyle(
+                                                      fontFamily:
+                                                          AppConstants.appFont,
+                                                      fontWeight:
+                                                          Dimensions.fontBold,
+                                                      color: AppColors.white,
+                                                      fontSize: 16))),
+                                          SizedBox(
+                                            height: 16,
+                                          ),
+                                          appButton(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.07,
+                                              fontSize: 16,
+                                              text: "Confirm",
+                                              onTap: () {
+                                                AuthService().logOut(context);
+                                              })
+                                        ],
+                                      ),
+                                    ));
+                              },
+                              size: MediaQuery.of(context).size.width * 0.13,
+                              backgroundColor: Colors.white,
+                              icon: Icon(
+                                Icons.logout,
+                                color: AppColors.secondary,
+                                size: 18,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      GestureDetector(
-                          onTap: () => AuthService().logOut(context),
-                          child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: appText(
-                                  textName: user.name.capitalizeFirstOfEach,
-                                  textStyle: TextStyle(
-                                    fontFamily: AppConstants.appFont,
-                                    fontSize: appDimension.h5,
-                                    fontWeight: Dimensions.fontBold,
-                                    color: AppColors.red,
-                                  )))),
+
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.03,
                       ),
